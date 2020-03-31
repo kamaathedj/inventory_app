@@ -29,7 +29,6 @@ const getTodos = (request, response, next) => {
 };
 
 const getSpecificTodo = (request, response, next) => {
- 
   const id = parseInt(request.params.id, 10);
   const qs = 'SELECT * FROM todos WHERE id = $1';
   pool.query(qs, [id], (error, results) => {
