@@ -6,25 +6,19 @@ const middleware = require('./middlewares');
 const routes = require('./api/logs');
 require('dotenv').config();
 
-const port =  process.env.port ||3000;
+const port = process.env.port || 3000;
 const app = express();
 
 app.use(morgan('common'));
 app.use(helmet());
 app.use(cors({
-    origin:process.env.CORS_ORIGIN
+  origin: process.env.CORS_ORIGIN,
 }));
 app.use(express.json());
 
-app.get('/',(req,res)=>{
-    res.json({
-        message:'hello world'
-    });
-   
 
-});
+app.use('/api', routes);
 
-app.use('/api',routes);
 
 // this should be the last route its is a not found page
 app.use(middleware.notFound);
@@ -34,8 +28,6 @@ app.use(middleware.errorHandler);
 
 
 app.listen(port, () => {
-    console.log(`server started at http://localhost:${port}`);
-   
-    
+  // eslint-disable-next-line no-console
+  console.log(`server started at http://localhost:${port}`);
 });
-
