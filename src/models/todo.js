@@ -42,7 +42,6 @@ const getSpecificTodo = (request, response, next) => {
     }
   });
 };
-
 const patchTodo = (request, response, next) => {
   const id = parseInt(request.params.id, 10);
   const { title, description, isCompleted } = request.body;

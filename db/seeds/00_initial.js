@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const tableNames = require('../../src/tableNames');
 
+const { countries, itemType } = require('../../src/lib/data');
+
 
 exports.seed = async (knex) => {
   [
@@ -39,14 +41,9 @@ exports.seed = async (knex) => {
   // eslint-disable-next-line no-console
   console.log(createdUser);
 
-  const created = await knex(tableNames.item_type).insert([
-    {
-      item_type: 'electronics',
-    },
-    {
-      item_type: 'foods',
-    },
-  ]).returning('*');
+  const created = await knex(tableNames.item_type).insert(itemType).returning('*');
   // eslint-disable-next-line no-console
   console.log(created);
+
+  await knex(tableNames.country).insert(countries);
 };
