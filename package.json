@@ -9,7 +9,8 @@
     "lint": "eslint src/",
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
-    "seeds": "knex seed:run"
+    "seeds": "knex seed:run",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
