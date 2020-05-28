@@ -6,6 +6,8 @@ const cors = require('cors');
 const middleware = require('./middlewares');
 const routes = require('./api/logs');
 
+const apiRoutes = require('./api/apiRoutes');
+
 const app = express();
 
 app.use(morgan('common'));
@@ -23,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', routes);
+app.use('/api/v1', apiRoutes);
 
 
 // this should be the last route its is a not found page
