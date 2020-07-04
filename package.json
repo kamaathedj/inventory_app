@@ -23,6 +23,7 @@
     "helmet": "^3.21.3",
     "knex": "^0.20.13",
     "morgan": "^1.10.0",
+    "objection": "^2.2.0",
     "pg": "^7.18.2"
   },
   "devDependencies": {
