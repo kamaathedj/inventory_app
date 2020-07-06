@@ -11,6 +11,6 @@ describe('GET /countries', () => {
       .expect('Content_Type', /json/)
       .expect(200);
     // eslint-disable-next-line no-unused-expressions
-    expect(response.body).isEmpty;
+    expect(response.body).isNotEmpty;
   });
 });

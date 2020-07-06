@@ -1,7 +1,10 @@
 const route = require('express').Router();
 
-route.get('/', (req, res) => {
-  res.json([]);
+const query = require('./countries.queries');
+
+route.get('/', async (req, res) => {
+  const countries = await query.find();
+  res.json(countries);
 });
 
 

@@ -10,4 +10,7 @@
 ### handy knex help doc command
 `npx knex -h`
 
+### handy initialize jest init 
+`npx jest --init`
+
 * eslint init `npx eslint --init`

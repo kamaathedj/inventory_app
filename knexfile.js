@@ -18,6 +18,21 @@ module.exports = {
     },
   },
 
+  test: {
+    client: 'pg',
+    connection: {
+      database: process.env.POSTGRESS_DB,
+      user: process.env.POSTGRESS_USER,
+      password: process.env.POSTGRESS_PASSWORD,
+    },
+    migrations: {
+      directory: './db/migrations',
+    },
+    seeds: {
+      directory: './db/seeds',
+    },
+  },
+
   // staging: {
   //   client: 'postgresql',
   //   connection: {
