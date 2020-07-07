@@ -11,3 +11,15 @@ describe('get /item_type', () => {
     expect(response.body).isNotEmpty;
   });
 });
+
+// doesnt allow post requests
+describe('post /item_type', () => {
+  it('should respond with a 404', async () => {
+    const response = supertest(app)
+      .post('/api/v1/item_type')
+      .expect('Content_Type', /json/);
+    expect(404);
+    // eslint-disable-next-line no-unused-expressions
+    expect(response.body).isNull;
+  });
+});

@@ -5,4 +5,7 @@ module.exports = {
   find() {
     return db(tableNames.item_type).select('id', 'item_type');
   },
+  // get() {
+  //   return db(tableNames.item_type).;
+  // },
 };

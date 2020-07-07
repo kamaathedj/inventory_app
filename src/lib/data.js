@@ -35,6 +35,15 @@ const itemType = [
   {
     item_type: 'foods',
   },
+  {
+    item_type: 'canned goods',
+  },
+  {
+    item_type: 'Vegetables',
+  },
+  {
+    item_type: 'Drinks',
+  },
 ];
 module.exports = {
   countries,
