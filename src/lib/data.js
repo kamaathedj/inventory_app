@@ -45,7 +45,20 @@ const itemType = [
     item_type: 'Drinks',
   },
 ];
+
+const county = [
+  {
+    name: 'kiambu',
+  },
+  {
+    name: 'nairobi',
+  },
+  {
+    name: 'kisii',
+  },
+];
 module.exports = {
   countries,
   itemType,
+  county,
 };
