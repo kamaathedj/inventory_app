@@ -38,6 +38,12 @@ exports.up = async (knex) => {
   await knex.schema.createTable(tableNames.address, (table) => {
     table.increments();
     table.string('name', 254).notNullable();
+    table.string('city', 254);
+    table.string('street_address', 50).notNullable();
+    table.string('street_address_2', 50);
+    table.float('latitude').notNullable();
+    table.float('longitude').notNullable();
+    table.string('zipcode', 15).notNullable();
     references(table, tableNames.county);
     references(table, tableNames.country);
     addDefaultColumns(table);
