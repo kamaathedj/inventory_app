@@ -16,7 +16,7 @@ const {
  */
 exports.up = async (knex) => {
   await knex.schema.createTable(tableNames.size, (table) => {
-    table.increments();
+    table.increments().notNullable();
     table.float('volume').notNullable();
     table.float('width');
     table.float('height');
@@ -24,26 +24,26 @@ exports.up = async (knex) => {
   });
 
   await knex.schema.createTable(tableNames.country, (table) => {
-    table.increments();
+    table.increments().notNullable();
     table.string('name', 254).notNullable();
     addDefaultColumns(table);
   });
 
   await knex.schema.createTable(tableNames.county, (table) => {
-    table.increments();
+    table.increments().notNullable();
     table.string('name', 254).notNullable();
     addDefaultColumns(table);
   });
 
   await knex.schema.createTable(tableNames.address, (table) => {
-    table.increments();
-    table.string('name', 254).notNullable();
+    table.increments().notNullable();
     table.string('city', 254);
     table.string('street_address', 50).notNullable();
     table.string('street_address_2', 50);
-    table.float('latitude').notNullable();
-    table.float('longitude').notNullable();
+    table.double('latitude').notNullable();
+    table.double('longitude').notNullable();
     table.string('zipcode', 15).notNullable();
+    table.unique('street_address', 'street_address_2', 'city', 'zipcode', 'county_id', 'country_id');
     references(table, tableNames.county);
     references(table, tableNames.country);
     addDefaultColumns(table);
@@ -67,7 +67,7 @@ exports.up = async (knex) => {
   });
 
   await knex.schema.createTable(tableNames.item, (table) => {
-    table.increments();
+    table.increments().notNullable();
     table.string('product_name', 254).notNullable();
     table.text('description', 1000);
     table.boolean('sparks_joy').defaultTo(true);
@@ -80,12 +80,12 @@ exports.up = async (knex) => {
   });
 
   await knex.schema.createTable(tableNames.item_location, (table) => {
-    table.increments();
+    table.increments().notNullable();
     table.string('where_at', 254).notNullable();
   });
 
   await knex.schema.createTable(tableNames.item_info, (table) => {
-    table.increments();
+    table.increments().notNullable();
     references(table, tableNames.user);
     references(table, tableNames.item);
     table.dateTime('purchase_date').notNullable();
@@ -99,7 +99,7 @@ exports.up = async (knex) => {
   });
 
   await knex.schema.createTable(tableNames.item_image, (table) => {
-    table.increments();
+    table.increments().notNullable();
     references(table, tableNames.item);
     url(table, 'image_url');
   });
