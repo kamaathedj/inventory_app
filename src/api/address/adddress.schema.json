@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The address schema",
+  "description": "The address schema comprises of the required field when creating an address.",
+  "examples": [
+    {
+      "street_address": "p.o box 5432",
+      "street_address_2": "department c",
+      "zipcode": "37950-2330",
+      "city": "knoxville",
+      "county_id": 1,
+      "country_id": 1,
+      "longitude": 34.345,
+      "latitude": -23.564
+    }
+  ],
+  "required": [
+    "street_address",
+    "street_address_2",
+    "zipcode",
+    "city",
+    "county_id",
+    "country_id",
+    "longitude",
+    "latitude"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "street_address": {
+      "$id": "#/properties/street_address",
+      "type": "string",
+      "title": "The street_address of the address."
+    },
+    "street_address_2": {
+      "$id": "#/properties/street_address_2",
+      "type": "string",
+      "title": "The street_address_2 of the address."
+    },
+    "zipcode": {
+      "$id": "#/properties/zipcode",
+      "type": "string",
+      "title": "The zipcode of the address."
+    },
+    "city": {
+      "$id": "#/properties/city",
+      "type": "string",
+      "title": "The city in which the address belongs.",
+      "examples": ["knoxville"]
+    },
+    "county_id": {
+      "$id": "#/properties/county_id",
+      "type": "number",
+      "title": "The county_id of the address ."
+    },
+    "country_id": {
+      "$id": "#/properties/country_id",
+      "type": "number",
+      "title": "The country id of the address."
+    },
+    "longitude": {
+      "$id": "#/properties/longitude",
+      "type": "number",
+      "title": "The longitude number on the map."
+    },
+    "latitude": {
+      "$id": "#/properties/latitude",
+      "type": "number",
+      "title": "The latitude number on the map."
+    }
+  }
+}
