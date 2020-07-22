@@ -15,6 +15,11 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
+    // eslint-disable-next-line camelcase
+    const { street_address, street_address_2, city } = req.body;
+    // eslint-disable-next-line no-console
+    console.log(street_address, street_address_2, city);
+
     const response = await addressModel.query().insert(req.body);
     res.status(201);
     res.json(response);
